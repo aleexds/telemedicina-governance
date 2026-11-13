@@ -6,10 +6,10 @@ Este documento detalla los principales riesgos tecnológicos, éticos y normativ
 
 | ID | Riesgo Identificado | Categoría | Probabilidad | Impacto | Quién sale afectado | Mitigación Implementada | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **R01** | **Inyección de Prompts maliciosos:** Un usuario intenta ocultar instrucciones en los síntomas para saltar restricciones. | Seguridad (OWASP LLM01) | Media | Alto | Pacientes y Servidor | Separación estricta de instrucciones del sistema, validación con esquemas tipados y sin privilegios de ejecución. | Mitigado |
-| **R02** | **Fuga de datos personales en Logs:** Exposición de correos, teléfonos o expedientes en herramientas de monitoreo (Sentry). | Privacidad (Ley 8968) | Baja | Alto | Usuarios del sistema | Capa automática de sanitización que reemplaza PII por etiquetas genéricas (`[email]`, `[phone]`, `[uuid]`). | Mitigado |
-| **R03** | **Alucinación o diagnóstico erróneo:** La IA genera una respuesta interpretada como diagnóstico médico definitivo o receta. | Ético y Legal | Media | Crítico | Pacientes | Prohibición absoluta en ADR 0002, disclaimer obligatorio en el chat y validación humana requerida. | Mitigado |
-| **R04** | **Comportamiento no autorizado de Agentes:** Un flujo ejecuta acciones destructivas en base de datos o envíos masivos. | Operativo | Baja | Medio | Base de datos | Prohibición de borrado permanente y principio de confirmación humana obligatoria para acciones críticas. | Mitigado |
+| **R01** | Inyección de Prompts maliciosos | Seguridad (OWASP LLM01) | Media | A | Pacientes y Servidor | Separación estricta de instrucciones del sistema y validación de datos. | Hecho |
+| **R02** | Fuga de datos personales en Logs | Privacidad (Ley 8968) | Baja | A | Usuarios del sistema | Capa automática de sanitización y enmascaramiento de PII. | Hecho |
+| **R03** | Alucinación o diagnóstico erróneo | Ético y Legal | Media | A | Pacientes | Prohibición absoluta en ADR 0002 y validación humana obligatoria. | Hecho |
+| **R04** | Comportamiento no autorizado | Operativo | Baja | M | Base de datos | Principio de confirmación humana para acciones críticas. | Hecho |
 
 ## Conclusiones del Monitoreo
 Este registro se revisa de forma iterativa en cada ciclo de desarrollo del proyecto para asegurar que los riesgos emergentes asociados al uso de inteligencia generativa y gestión de datos queden cubiertos por controles técnicos y políticas escritas.
