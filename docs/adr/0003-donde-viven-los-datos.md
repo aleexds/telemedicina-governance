@@ -2,10 +2,10 @@
 
 * **Estado:** Aceptado
 * **Fecha:** 2026-11-13
-* **Decidido por:** Alex Cubero (Arquitecto de Software)
+* **Quién decide:** Alex Cubero (Arquitecto de Software)
 
 ## Contexto
-La gestión de expedientes médicos, citas e información personal de pacientes exige controles estrictos de ubicación, acceso y protección frente a filtraciones de seguridad, en alineación con la Ley 8968. Es crítico definir dónde residen los datos, quién puede leerlos y cómo se protegen ante servicios externos.
+La gestión de expedientes médicos, citas e información personal de pacientes exige controles estrictos de ubicación, acceso y protección frente a filtraciones de seguridad, en alineación con la Ley 8968. Es crítico definir dónde residen los datos, quién puede leerlos y cómo se protegen ante servicios externos. El procesamiento del dato sensible de **Historial de síntomas y pre-diagnóstico** es estrictamente necesario para que el asistente de IA pueda estructurar la pre-consulta y orientar al paciente hacia la especialidad médica correcta antes de la cita.
 
 ## Decisión
 Se establece que **todos los datos personales y clínicos residirán exclusivamente en una base de datos relacional cifrada con control de acceso estricto a nivel de fila**, aplicando anonimización obligatoria antes de enviar cualquier fragmento de texto a APIs de terceros o sistemas de monitoreo.
