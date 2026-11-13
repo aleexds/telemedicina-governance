@@ -4,9 +4,9 @@ No se puede gobernar lo que no se sabe que se tiene. Una fila por cada dato que 
 
 | Dato | ¿Personal? | Categoría (Ley 8968, art. 9) | De dónde viene | Dónde se guarda | ¿Sale a un tercero? ¿A quién? | Cuánto se conserva | Quién puede verlo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Nombre completo y cédula | Sí | Acceso restringido | Formulario de registro del paciente | Supabase (tabla `users`) | No | Hasta solicitud de supresión (Derechos ARCO) | El propio usuario y administradores |
-| Historial de síntomas y pre-diagnóstico | Sí | Salud (Datos Sensibles) | Ingreso directo por el paciente en el chat | Supabase (tabla `medical_records`) | Sí: Proveedor de IA (Anthropic), solo para extracción y resumen clínico (anonimizado) | Tiempo estipulado por normativa de salud | El paciente y el médico asignado |
-| Correo electrónico y teléfono | Sí | Acceso restringido | Perfil de usuario | Supabase (tabla `users`) | Sí: Pasarela de notificaciones (solo para avisos de citas) | 1 año tras inactividad de cuenta | El usuario |
+| Nombre completo y cédula | Sí | Acceso restringido | Formulario de registro del paciente | Base de datos | No | Hasta solicitud de supresión (Derechos ARCO) | El propio usuario y administradores |
+| Historial de síntomas y pre-diagnóstico | Sí | Salud (Datos Sensibles) | Ingreso directo por el paciente en el chat | Base de datos | Sí: Proveedor de IA (Anthropic), solo para extracción y resumen clínico (anonimizado) | Tiempo estipulado por normativa de salud | El paciente y el médico asignado |
+| Correo electrónico y teléfono | Sí | Acceso restringido | Perfil de usuario | Base de datos | Sí: Pasarela de notificaciones (solo para avisos de citas) | 1 año tras inactividad de cuenta | El usuario |
 | Coordenadas de conexión / Logs de error | No | No aplica | Generado automáticamente por el servidor | Servidores de Monitoreo (Sentry) | Sí: Sentry (con enmascaramiento previo de PII) | 90 días | Equipo de desarrollo |
 
 <!--
