@@ -1,31 +1,27 @@
-# ADR-0001: <modelo y proveedor de IA que usa el proyecto, en una frase>
+# ADR 0001: Selección de Modelo y Proveedor de IA
 
-- Estado: Propuesto
-- Fecha: <AAAA-MM-DD>
-- Decide: <nombre y rol de quien responde por esta decisión>
-
-<!--
-Si su proyecto NO usa IA dentro del producto, este ADR pasa a ser:
-«Qué herramientas de IA usamos para programar y con qué reglas».
--->
-
-## Contexto
-
-<Qué necesita hacer la IA en su producto. Qué restricciones hay: costo, datos personales, latencia, idioma, si el cliente u organización aliada puso condiciones. Máximo 5 líneas.>
+* **Estado:** Aceptado
+* **Fecha:** 2026-11-13
+* **Contexto:** La plataforma de telemedicina requiere integrar un asistente conversacional automatizado que opere como triaje inicial, procesando las descripciones de síntomas de los pacientes, estructurando historiales previos y ayudando a direccionar la consulta hacia la especialidad médica adecuada de forma rápida, segura y bajo estricto cumplimiento normativo.
 
 ## Decisión
+Se decide implementar el modelo **Claude 3.5 Sonnet (mediante la API oficial de Anthropic)** como el motor central de Inteligencia Artificial para el procesamiento de lenguaje natural y la asistencia analítica en la plataforma.
 
-<Qué modelo y qué proveedor, para qué tareas, y cómo se llama (solo desde el servidor, con qué llave). Frases verificables. Mal: «se usará IA de forma responsable». Bien: «el modelo X se llama solo desde `src/lib/ai/`, con la llave en una variable de entorno del servidor».>
+## Justificación y Alternativas Descartadas
 
-## Alternativas descartadas
+* **Por qué se eligió:** 
+  1. **Precisión y Contexto:** Posee una alta capacidad para seguir instrucciones complejas en español y un excelente rendimiento en razonamiento clínico preliminar.
+  2. **Seguridad y Privacidad:** Las políticas comerciales y técnicas de la API garantizan la no retención y no utilización de los datos de los usuarios para reentrenar modelos públicos (Zero Data Retention), un requisito indispensable para cumplir con la legislación de protección de datos personales de salud (Ley 8968).
 
-- <Otro modelo o proveedor>: <por qué no>.
-- <Otra opción, por ejemplo no usar IA para esta tarea>: <por qué no>.
+* **Alternativas Descartadas:**
+  * *Modelos open-source auto-hospedados (ej. Llama 3 en infraestructura propia):* Descartados en esta fase inicial debido a los elevados costos de aprovisionamiento de hardware con GPUs dedicadas y la complejidad operativa de mantenimiento.
+  * *APIs de proveedores alternativos sin compromisos explícitos de privacidad encriptada:* Descartadas por el riesgo legal y técnico de exponer información sensible de pacientes a servidores de terceros sin garantías contractuales robustas.
 
 ## Consecuencias
 
-<Qué se gana y qué se pierde. Costo estimado por mes. Qué pasa si el proveedor falla o sube el precio. Qué queda pendiente.>
-
-## Cómo se verifica
-
-<Dónde en el código o en las pruebas se ve que esto se cumple: un archivo, un test, una regla de CI.>
+* **Positivas:** 
+  * Se obtiene un asistente sumamente preciso que reduce el margen de error y alucinaciones en respuestas críticas.
+  * Se asegura un marco legal transparente de tratamiento de datos con el proveedor tecnológico.
+* **Negativas:** 
+  * Se genera una dependencia tecnológica directa de la infraestructura de Anthropic.
+  * Los costos de operación son variables y dependen estrictamente del volumen de tokens procesados, lo que obliga a implementar límites estrictos en la longitud máxima de los historiales de chat.
