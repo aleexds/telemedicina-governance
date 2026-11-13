@@ -1,8 +1,8 @@
 # ADR 0001: Selección de Modelo y Proveedor de IA
 
-**Estado:** Aceptado
-**Fecha:** 2026-11-13
-**Quién decide:** Alex Cubero, Arquitecto de Software
+Estado: Aceptado
+Fecha: 2026-11-13
+Decide: Alex Cubero, Arquitecto de Software
 
 ## Contexto
 La plataforma de telemedicina requiere integrar un asistente conversacional automatizado que opere como triaje inicial, procesando las descripciones de síntomas de los pacientes, estructurando historiales previos y ayudando a direccionar la consulta hacia la especialidad médica adecuada de forma rápida, segura y bajo estricto cumplimiento normativo.
