@@ -2,7 +2,7 @@
 
 * **Estado:** Aceptado
 * **Fecha:** 2026-11-13
-* **Decidido por:** Alex Cubero
+* **Decidido por:** Alex Cubero (Arquitecto de Software)
 
 ## Contexto
 La gestión de expedientes médicos, citas e información personal de pacientes exige controles estrictos de ubicación, acceso y protección frente a filtraciones de seguridad, en alineación con la Ley 8968. Es crítico definir dónde residen los datos, quién puede leerlos y cómo se protegen ante servicios externos.
