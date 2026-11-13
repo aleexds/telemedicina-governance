@@ -4,13 +4,12 @@ No se puede gobernar lo que no se sabe que se tiene. Una fila por cada dato que 
 
 | Dato | ¿Personal? | Categoría (Ley 8968, art. 9) | De dónde viene | Dónde se guarda | ¿Sale a un tercero? ¿A quién? | Cuánto se conserva | Quién puede verlo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <dato> | <Sí o No> | <categoría, o «No aplica»> | <origen> | <servicio y tabla> | <No, o a quién y para qué> | <plazo> | <roles> |
-| <dato> | <Sí o No> | <categoría, o «No aplica»> | <origen> | <servicio y tabla> | <No, o a quién y para qué> | <plazo> | <roles> |
+| Nombre completo y cédula | Sí | Acceso restringido | Formulario de registro del paciente | Supabase (tabla `users`) | No | Hasta solicitud de supresión (Derechos ARCO) | El propio usuario y administradores |
+| Historial de síntomas y pre-diagnóstico | Sí | Salud (Datos Sensibles) | Ingreso directo por el paciente en el chat | Supabase (tabla `medical_records`) | Sí: Proveedor de IA (Anthropic), solo para extracción y resumen clínico (anonimizado) | Tiempo estipulado por normativa de salud | El paciente y el médico asignado |
+| Correo electrónico y teléfono | Sí | Acceso restringido | Perfil de usuario | Supabase (tabla `users`) | Sí: Pasarela de notificaciones (solo para avisos de citas) | 1 año tras inactividad de cuenta | El usuario |
+| Coordenadas de conexión / Logs de error | No | No aplica | Generado automáticamente por el servidor | Servidores de Monitoreo (Sentry) | Sí: Sentry (con enmascaramiento previo de PII) | 90 días | Equipo de desarrollo |
 
 <!--
-Ejemplo de fila bien llenada:
-| Texto del CV | Sí | Acceso restringido | Lo sube el usuario | Supabase Storage | Sí: proveedor de IA, solo para extraer campos | 30 días | El usuario |
-
 Categorías de la Ley 8968 (art. 9):
 - Sensibles: origen racial o étnico, opiniones políticas, convicciones religiosas, salud,
   vida y orientación sexual; la definición del art. 3 incluye la condición socioeconómica
@@ -22,4 +21,5 @@ Categorías de la Ley 8968 (art. 9):
 
 ## Lo que NO recolectamos
 
-- <dato que decidieron no pedir>: <por qué no lo necesitan>
+- Datos de salud mental profunda: decidimos no requerirlos ni almacenarlos en la pre-consulta para evitar riesgos innecesarios de manejo de datos altamente sensibles no indispensables para la cita general.
+- Biometría avanzada (huella o reconocimiento facial): no la necesitamos porque la autenticación se realiza mediante credenciales tradicionales seguras de usuario y contraseña.
