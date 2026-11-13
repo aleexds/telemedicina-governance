@@ -18,3 +18,4 @@ Este archivo define las directrices obligatorias que todo agente de desarrollo o
 ## 3. Límites del Producto de IA (ADR 0002)
 
 * Al desarrollar o modificar funcionalidades del asistente médico, respeta estrictamente el **ADR 0002**: la IA únicamente extrae información, resume síntomas y orienta sobre especialidades. Nunca implementes algoritmos que asignen puntajes clínicos, diagnostiquen enfermedades ni bloqueen el acceso de pacientes a la atención médica.
+* **Lectura obligatoria de ADRs:** Antes de modificar código o arquitectura, el agente debe leer y respetar todas las decisiones documentadas en la carpeta `docs/adr/`.
