@@ -2,7 +2,7 @@
 
 * **Estado:** Aceptado
 * **Fecha:** 2026-11-13
-* **Decidido por:** Alex Cubero (Arquitecto de Software)
+* **Decidido por:** Alex Cubero
 
 ## Contexto
 En sistemas de salud y atención al público, delegar decisiones críticas a algoritmos automatizados conlleva altos riesgos éticos, médicos y legales. Es necesario delimitar exactamente qué puede hacer el asistente de IA y dónde interviene obligatoriamente un profesional humano.
