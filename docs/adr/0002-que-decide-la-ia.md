@@ -1,8 +1,8 @@
-# ADR 0002: Alcance de Decisiones y Límites de Autonomía de la IA
+# ADR 0001: Selección de Modelo y Proveedor de IA
 
-* **Estado:** Aceptado
-* **Fecha:** 2026-11-13
-* **Decidido por:** Alex Cubero (Arquitecto de Software)
+**Estado:** Aceptado
+**Fecha:** 2026-11-13
+**Quién decide:** Alex Cubero, Arquitecto de Software
 
 ## Contexto
 En sistemas de salud y atención al público, delegar decisiones críticas a algoritmos automatizados conlleva altos riesgos éticos, médicos y legales. Es necesario delimitar exactamente qué puede hacer el asistente de IA y dónde interviene obligatoriamente un profesional humano.
